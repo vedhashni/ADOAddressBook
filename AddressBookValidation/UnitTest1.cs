@@ -57,5 +57,14 @@ namespace AddressBookValidation
             var actual = addrBookRepo.EditExistingContact(addrBook);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestMethodForDeleteContactUsingName()
+        {
+            int expected = 1;
+            AddressBookModel addrBook = new AddressBookModel();
+            var actual = addrBookRepo.DeleteParticularContact(addrBook);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

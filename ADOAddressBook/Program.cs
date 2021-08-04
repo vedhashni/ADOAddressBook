@@ -39,6 +39,10 @@ namespace ADOAddressBook
                 case 3:
                     addrBookRepo.EditExistingContact(addrBook);
                     break;
+
+                case 4:
+                    addrBookRepo.DeleteParticularContact(addrBook);
+                    break;
             }
         }
     }
