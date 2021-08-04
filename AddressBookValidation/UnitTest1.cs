@@ -45,5 +45,17 @@ namespace AddressBookValidation
             var actual = addrBookRepo.InsertIntoTable(addrBook);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC4-Edit the existing contact using update query(by their name)
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForUpdateQuery()
+        {
+            int expected = 1;
+            AddressBookModel addrBook = new AddressBookModel();
+            var actual = addrBookRepo.EditExistingContact(addrBook);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

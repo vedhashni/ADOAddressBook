@@ -35,6 +35,10 @@ namespace ADOAddressBook
                     addrBook.relationType = "Family";
                     addrBookRepo.InsertIntoTable(addrBook);
                     break;
+
+                case 3:
+                    addrBookRepo.EditExistingContact(addrBook);
+                    break;
             }
         }
     }
