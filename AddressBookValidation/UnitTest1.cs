@@ -58,12 +58,27 @@ namespace AddressBookValidation
             Assert.AreEqual(expected, actual);
         }
 
+        /// <summary>
+        /// UC5-Delete the contact using name
+        /// </summary>
         [TestMethod]
         public void TestMethodForDeleteContactUsingName()
         {
             int expected = 1;
             AddressBookModel addrBook = new AddressBookModel();
             var actual = addrBookRepo.DeleteParticularContact(addrBook);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// UC6-Retrieve Data Based on City and State
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForRetrieveDataBasedOnCityAndState()
+        {
+            int expected = 2;
+            AddressBookModel model = new AddressBookModel();
+            var actual = addrBookRepo.RetrieveDataBasedOnStateAndCity(model);
             Assert.AreEqual(expected, actual);
         }
     }

@@ -43,6 +43,10 @@ namespace ADOAddressBook
                 case 4:
                     addrBookRepo.DeleteParticularContact(addrBook);
                     break;
+
+                case 5:
+                    addrBookRepo.RetrieveDataBasedOnStateAndCity(addrBook);
+                    break;
             }
         }
     }
