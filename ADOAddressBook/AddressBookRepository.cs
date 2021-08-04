@@ -73,5 +73,57 @@ namespace ADOAddressBook
             Console.WriteLine("FirstName :{0} LastName :{1} Address :{2} City :{3} State :{4} ZipCode :{5} PhoneNum :{6} EmailId :{7} AddressBookName :{8} RelationType :{9} ", addressBook.firstName, addressBook.lastName, addressBook.address, addressBook.city, addressBook.stateName, addressBook.zipCode, addressBook.phoneNum, addressBook.emailId, addressBook.addrBookName, addressBook.relationType);
             Console.WriteLine("\n");
         }
+
+        /// <summary>
+        /// UC3-Insert the table in Address_Book_Table using,Stored Procedure
+        /// </summary>
+        /// <param name="addressBook"></param>
+        /// <returns></returns>
+        public int InsertIntoTable(AddressBookModel addressBook)
+        {
+            int count = 0;
+            try
+            {
+                using (sqlConnection)
+                {
+                    //Passing the stored procedure and connection
+                    SqlCommand sqlCommand = new SqlCommand("dbo.InsertTable", this.sqlConnection);
+
+                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    //Adding the value
+                    sqlCommand.Parameters.AddWithValue("@FirstName", addressBook.firstName);
+                    sqlCommand.Parameters.AddWithValue("@LastName", addressBook.lastName);
+                    sqlCommand.Parameters.AddWithValue("@Address", addressBook.address);
+                    sqlCommand.Parameters.AddWithValue("@City", addressBook.city);
+                    sqlCommand.Parameters.AddWithValue("@StateName", addressBook.stateName);
+                    sqlCommand.Parameters.AddWithValue("@ZipCode", addressBook.zipCode);
+                    sqlCommand.Parameters.AddWithValue("@PhoneNum", addressBook.phoneNum);
+                    sqlCommand.Parameters.AddWithValue("@EmailId", addressBook.emailId);
+                    sqlCommand.Parameters.AddWithValue("@AddressBookName", addressBook.addrBookName);
+                    sqlCommand.Parameters.AddWithValue("@RelationType", addressBook.relationType);
+                    //Opening the connection
+                    sqlConnection.Open();
+                    //returns the number of rows updated
+                    int result = sqlCommand.ExecuteNonQuery();
+                    if (result != 0)
+                    {
+                        //Count the insert value
+                        count++;
+                        Console.WriteLine("Inserted Successfully");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Closing the connection
+                sqlConnection.Close();
+            }
+            return count;
+        }
     }
 }

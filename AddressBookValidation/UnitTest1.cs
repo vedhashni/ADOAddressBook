@@ -23,5 +23,27 @@ namespace AddressBookValidation
             var actual = addrBookRepo.RetrieveData();
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC3-Insert the values in address_book_table
+        /// </summary>
+        [TestMethod]
+        public void TestMethodInsertIntoTable()
+        {
+            int expected = 1;
+            AddressBookModel addrBook = new AddressBookModel();
+            addrBook.firstName = "mohana";
+            addrBook.lastName = "vijay";
+            addrBook.address = "1st street";
+            addrBook.city = "Trichy";
+            addrBook.stateName = "Tamilnadu";
+            addrBook.zipCode = "600098";
+            addrBook.phoneNum = 9856723560;
+            addrBook.emailId = "mohana@gmail.com";
+            addrBook.addrBookName = "Cousin";
+            addrBook.relationType = "Family";
+            var actual = addrBookRepo.InsertIntoTable(addrBook);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
