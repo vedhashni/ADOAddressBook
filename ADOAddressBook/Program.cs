@@ -83,6 +83,10 @@ namespace ADOAddressBook
                 case 14:
                     transcation.RetrieveDataBasedOnDateRange();
                     break;
+
+                case 15:
+                    transcation.InsertIntoTablesUsingTranscation();
+                    break;
             }
         }
         }

@@ -186,5 +186,16 @@ namespace AddressBookValidation
             int actual = transcation.RetrieveDataBasedOnDateRange();
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        ///  Insert into tables using transcation
+        /// </summary>
+        [DataTestMethod]
+        public void TestMethodForInsertIntoTablesUsingTranscation()
+        {
+            int expected = 1;
+            int actual = transcation.InsertIntoTablesUsingTranscation();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
