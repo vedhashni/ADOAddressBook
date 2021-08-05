@@ -51,6 +51,10 @@ namespace ADOAddressBook
                 case 6:
                     addrBookRepo.RetrieveCountGroupByStateAndCity(addrBook);
                     break;
+
+                case 7:
+                    addrBookRepo.RetrieveDataBySortedAlphabetically(addrBook);
+                    break;
             }
         }
     }

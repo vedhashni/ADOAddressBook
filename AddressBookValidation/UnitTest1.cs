@@ -93,5 +93,17 @@ namespace AddressBookValidation
             var actual = addrBookRepo.RetrieveCountGroupByStateAndCity(model);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC8-Retrieve Data Sorted Alphabetically by Name for a City
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForSortAlphabeticallyByNameAndGivenCity()
+        {
+            int expected = 2;
+            AddressBookModel model = new AddressBookModel();
+            var actual = addrBookRepo.RetrieveDataBySortedAlphabetically(model);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
