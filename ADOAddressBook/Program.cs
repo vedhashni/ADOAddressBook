@@ -14,7 +14,8 @@ namespace ADOAddressBook
 
            AddressBookRepository addrBookRepo = new AddressBookRepository();
             AddressBookModel addrBook = new AddressBookModel();
-            
+            ERRepository eRRepoistory = new ERRepository();
+
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -59,7 +60,28 @@ namespace ADOAddressBook
                 case 8:
                     addrBookRepo.CountRelationType(addrBook);
                     break;
+
+                case 9:
+                    eRRepoistory.PrintDataBasedOnCityAndStateUisngERRelationship(addrBook);
+                    break;
+                case 10:
+                    eRRepoistory.CountStateAndCityUsingERDiagram(addrBook);
+                    break;
+                case 11:
+                    eRRepoistory.CountTypeNameUsingERDiagram(addrBook);
+                    break;
+                case 12:
+                    eRRepoistory.SortedtheirNameUsingERDiagram(addrBook);
+                    break;
+
+                case 13:
+                    Transcation transcation = new Transcation();
+                    //transcation.AlterTableaddStartDate();
+                    Transcation transcation1 = new Transcation();
+                    transcation1.UpdateStartDateValueBasedOnContctId();
+                    break;
             }
+        }
         }
     }
 }

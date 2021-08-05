@@ -117,5 +117,59 @@ namespace AddressBookValidation
             var actual = addrBookRepo.CountRelationType(model);
             Assert.AreEqual(expected, actual);
         }
+
+        //------------------Implementing ER Diagram Relationship------------------
+        /// <summary>
+        /// ----UC6--->Retrieve Person Belonging to  City or State
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForPrintDataBasedOnCityAndStateUisngERRelationship()
+        {
+            int expected = 3;
+            AddressBookModel model = new AddressBookModel();
+            int actual = eRRepoistory.PrintDataBasedOnCityAndStateUisngERRelationship(model);
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// ----UC7--->Size of state and city
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForCountCityAndStateUsingERRelationship()
+        {
+            var expected = "1 TamilNadu Coimbatore 2 Tamil Nadu Chennai ";
+            AddressBookModel model = new AddressBookModel();
+            var actual = eRRepoistory.CountStateAndCityUsingERDiagram(model);
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// -----UC8--->Retrieve the person data entries sorted alphabetically
+        /// </summary>
+        [DataTestMethod]
+        public void SortedTheirNameUsingERRelationship()
+        {
+            int expected = 5;
+            AddressBookModel model = new AddressBookModel();
+            int actual = eRRepoistory.SortedtheirNameUsingERDiagram(model);
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// ---	UC9--->Get Number Of contact persons by type
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForRelationTypeUsingERRelationship()
+        {
+            var expected = "2 Family 1 Friends 1 Profession ";
+            AddressBookModel model = new AddressBookModel();
+            var actual = eRRepoistory.CountTypeNameUsingERDiagram(model);
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void TestMethodForAddingADateColumn()
+        {
+            int expected = 2;
+            int actual = transcation.UpdateStartDateValueBasedOnContctId();
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
