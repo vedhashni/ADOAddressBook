@@ -81,5 +81,17 @@ namespace AddressBookValidation
             var actual = addrBookRepo.RetrieveDataBasedOnStateAndCity(model);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC7-Size Of addressBook by City and State
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForCountGroupByCityAndState()
+        {
+            var expected = "1 TamilNadu Coimbatore 3 TamilNadu Chennai ";
+            AddressBookModel model = new AddressBookModel();
+            var actual = addrBookRepo.RetrieveCountGroupByStateAndCity(model);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
