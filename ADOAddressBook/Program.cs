@@ -15,6 +15,7 @@ namespace ADOAddressBook
            AddressBookRepository addrBookRepo = new AddressBookRepository();
             AddressBookModel addrBook = new AddressBookModel();
             ERRepository eRRepoistory = new ERRepository();
+            Transaction transcation = new Transaction();
 
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -75,10 +76,12 @@ namespace ADOAddressBook
                     break;
 
                 case 13:
-                    Transcation transcation = new Transcation();
-                    //transcation.AlterTableaddStartDate();
-                    Transcation transcation1 = new Transcation();
-                    transcation1.UpdateStartDateValueBasedOnContctId();
+                   
+                    transcation.UpdateStartDateValueBasedOnContctId();
+                    break;
+
+                case 14:
+                    transcation.RetrieveDataBasedOnDateRange();
                     break;
             }
         }

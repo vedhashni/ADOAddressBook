@@ -8,10 +8,14 @@ namespace AddressBookValidation
     public class UnitTest1
     {
         AddressBookRepository addrBookRepo;
+        ERRepository eRRepoistory;
+        Transaction transcation;
         [TestInitialize]
         public void Setup()
         {
             addrBookRepo = new AddressBookRepository();
+            eRRepoistory = new ERRepository();
+            transcation = new Transaction();
         }
         /// <summary>
         /// UC2-Retrieve the data using query and returns the count
@@ -170,6 +174,17 @@ namespace AddressBookValidation
             int actual = transcation.UpdateStartDateValueBasedOnContctId();
             Assert.AreEqual(expected, actual);
 
+        }
+
+        /// <summary>
+        /// Retrieve teh details based on date range
+        /// </summary>
+        [TestMethod]
+        public void RetrieveDataBasedOnDateRange()
+        {
+            int expected = 2;
+            int actual = transcation.RetrieveDataBasedOnDateRange();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
