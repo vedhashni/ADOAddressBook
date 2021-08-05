@@ -55,6 +55,10 @@ namespace ADOAddressBook
                 case 7:
                     addrBookRepo.RetrieveDataBySortedAlphabetically(addrBook);
                     break;
+
+                case 8:
+                    addrBookRepo.CountRelationType(addrBook);
+                    break;
             }
         }
     }

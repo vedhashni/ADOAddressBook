@@ -105,5 +105,17 @@ namespace AddressBookValidation
             var actual = addrBookRepo.RetrieveDataBySortedAlphabetically(model);
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// UC10-Get Count By RelationType
+        /// </summary>
+        [TestMethod]
+        public void TestMethodForCountRelationType()
+        {
+            var expected = "2 Family 1 Friend 1 Profession ";
+            AddressBookModel model = new AddressBookModel();
+            var actual = addrBookRepo.CountRelationType(model);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
